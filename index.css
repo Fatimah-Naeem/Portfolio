@@ -118,12 +118,12 @@ nav a:hover { opacity: 1; color: var(--accent); }
 }
 
 /* =========================
-   HERO SECTION (TIGHTER PADDING)
+   HERO SECTION
 ========================= */
 .hero {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 60px 24px 30px 24px; /* Reduced bottom padding to bring sections closer */
+  padding: 80px 24px 40px 24px;
 }
 
 .hero-container {
@@ -178,6 +178,11 @@ nav a:hover { opacity: 1; color: var(--accent); }
 }
 .btn:hover { transform: translateY(-2px); box-shadow: 0 10px 20px rgba(99, 102, 241, 0.2); }
 
+.links {
+  display: flex;
+  gap: 14px;
+}
+
 .links a {
   display: inline-flex;
   padding: 12px 22px;
@@ -208,12 +213,13 @@ nav a:hover { opacity: 1; color: var(--accent); }
 .hero-right {
   display: flex;
   justify-content: center;
+  width: 100%;
 }
 
 .mockup-card {
   width: 100%;
-  max-width: 340px;
-  height: 260px;
+  max-width: 380px;
+  aspect-ratio: 4 / 3;
   background: var(--bg-secondary);
   border-radius: 20px;
   border: 1px solid var(--border-color);
@@ -223,14 +229,12 @@ nav a:hover { opacity: 1; color: var(--accent); }
   animation: floatCard 6s infinite ease-in-out;
 }
 
-/* Image scaling inside the box */
 .mockup-card img {
   width: 100%;
   height: 100%;
-  object-fit: cover; /* Ensures the image fills the frame beautifully without distorting */
+  object-fit: cover;
   display: block;
 }
-
 
 @keyframes floatCard {
   0%, 100% { transform: translateY(0); }
@@ -238,16 +242,22 @@ nav a:hover { opacity: 1; color: var(--accent); }
 }
 
 /* =========================
-   SECTIONS & GRID CARDS (FIXED GAP SPACE)
+   SECTIONS & GRID CARDS
 ========================= */
 .section {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 40px 24px; /* Reduced top/bottom padding drastically to eliminate empty spaces */
+  padding: 60px 24px;
 }
 
 .section h2 { font-size: 1.8rem; margin-bottom: 28px; font-weight: 600; letter-spacing: -0.5px; }
-.cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 20px; }
+
+/* Dynamic grid system: automatically adjusts column counts depending on device sizing */
+.cards { 
+  display: grid; 
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+  gap: 24px; 
+}
 
 .card {
   background: var(--bg-secondary);
@@ -270,10 +280,10 @@ nav a:hover { opacity: 1; color: var(--accent); }
 ========================= */
 .contact {
   background: var(--bg-secondary);
-  max-width: 800px;
-  margin: 30px auto; /* Tighter margins */
+  max-width: 600px;
+  margin: 40px auto; 
   border-radius: 24px;
-  padding: 40px;
+  padding: 40px 24px;
   text-align: center;
   box-shadow: var(--card-shadow);
   border: 1px solid var(--border-color);
@@ -285,22 +295,66 @@ nav a:hover { opacity: 1; color: var(--accent); }
 footer { text-align: center; padding: 32px 24px; color: var(--text-secondary); font-size: 0.85rem; border-top: 1px solid var(--border-color); }
 
 /* =========================
-   RESPONSIVE DESIGN
+   RESPONSIVE MEDIA QUERIES
 ========================= */
+
+/* Tablets & Small Laptops/IPads */
 @media (max-width: 968px) {
-  .hero-container { grid-template-columns: 1fr; text-align: center; gap: 30px; }
-  .hero-left { text-align: center; }
-  .hero h2 { font-size: 2.6rem; }
+  header { padding: 16px 4%; }
+  
+  .hero { padding-top: 40px; }
+  .hero-container { 
+    grid-template-columns: 1fr; 
+    text-align: center; 
+    gap: 48px; 
+  }
+  
+  .hero-left {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .hero h2 { font-size: 2.8rem; }
   .cta-group { justify-content: center; }
-  .mini-stats { justify-content: center; }
-  .section { padding: 30px 24px; }
+  .mini-stats { width: 100%; max-width: 500px; }
+  .section { padding: 40px 24px; }
 }
 
+/* Mobile Phones (Standard and Small Screen Sizes) */
 @media (max-width: 576px) {
-  .hero h2 { font-size: 2rem; }
-  .cta-group { flex-direction: column; width: 100%; }
-  .btn, .links, .links a { width: 100%; justify-content: center; }
-  .mini-stats { flex-direction: column; gap: 10px; }
-  .cards { grid-template-columns: 1fr; }
-  .contact { padding: 30px 16px; }
+  header {
+    padding: 12px 16px;
+  }
+  header h1 { font-size: 1rem; }
+  nav { gap: 12px; }
+  nav a { font-size: 0.85rem; }
+  
+  .hero h2 { font-size: 2.2rem; }
+  .hero p { font-size: 1rem; }
+  
+  .cta-group { 
+    flex-direction: column; 
+    width: 100%; 
+    gap: 12px;
+  }
+  .btn, .links, .links a { 
+    width: 100%; 
+    justify-content: center; 
+    text-align: center;
+  }
+  
+  .mini-stats { 
+    flex-direction: column; 
+    gap: 12px; 
+    width: 100%;
+  }
+  
+  /* Fallback layout adjustment for tiny viewports */
+  .cards { 
+    grid-template-columns: 1fr; 
+  }
+  
+  .card { padding: 20px; }
+  .contact { padding: 32px 16px; margin: 20px 16px; }
 }
