@@ -97,9 +97,28 @@ header {
   border-bottom: 1px solid var(--border-color);
 }
 
-header h1 { font-size: 1.15rem; font-weight: 600; margin: 0; }
-nav { display: flex; gap: 24px; align-items: center; }
-nav a { text-decoration: none; color: var(--text-primary); font-weight: 500; font-size: 0.95rem; transition: var(--transition); opacity: 0.7; }
+header h1 { 
+  font-size: 1.15rem; 
+  font-weight: 600; 
+  margin: 0; 
+  flex-shrink: 0; /* Prevents text from shrinking oddly */
+}
+
+nav { 
+  display: flex; 
+  gap: 24px; 
+  align-items: center; 
+}
+
+nav a { 
+  text-decoration: none; 
+  color: var(--text-primary); 
+  font-weight: 500; 
+  font-size: 0.95rem; 
+  transition: var(--transition); 
+  opacity: 0.7; 
+  white-space: nowrap; /* Prevents words from wrapping into 2 lines */
+}
 nav a:hover { opacity: 1; color: var(--accent); }
 
 .theme-toggle {
@@ -115,6 +134,7 @@ nav a:hover { opacity: 1; color: var(--accent); }
   cursor: pointer;
   transition: var(--transition);
   box-shadow: var(--card-shadow);
+  flex-shrink: 0; /* Keeps toggle perfectly circular */
 }
 
 /* =========================
@@ -252,7 +272,6 @@ nav a:hover { opacity: 1; color: var(--accent); }
 
 .section h2 { font-size: 1.8rem; margin-bottom: 28px; font-weight: 600; letter-spacing: -0.5px; }
 
-/* Dynamic grid system: automatically adjusts column counts depending on device sizing */
 .cards { 
   display: grid; 
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
@@ -298,7 +317,7 @@ footer { text-align: center; padding: 32px 24px; color: var(--text-secondary); f
    RESPONSIVE MEDIA QUERIES
 ========================= */
 
-/* Tablets & Small Laptops/IPads */
+/* Tablets & Small Laptops/iPads */
 @media (max-width: 968px) {
   header { padding: 16px 4%; }
   
@@ -322,13 +341,28 @@ footer { text-align: center; padding: 32px 24px; color: var(--text-secondary); f
 }
 
 /* Mobile Phones (Standard and Small Screen Sizes) */
-@media (max-width: 576px) {
+@media (max-width: 600px) {
   header {
+    flex-direction: column;
+    gap: 12px;
     padding: 12px 16px;
   }
-  header h1 { font-size: 1rem; }
-  nav { gap: 12px; }
-  nav a { font-size: 0.85rem; }
+
+  nav {
+    width: 100%;
+    justify-content: center;
+    gap: 16px;
+    overflow-x: auto; /* Gracefully handles ultra-small mobile screen widths */
+    padding-bottom: 4px;
+    -ms-overflow-style: none;  
+    scrollbar-width: none; 
+  }
+  
+  nav::-webkit-scrollbar {
+    display: none; /* Keeps navigation clean without visual scrollbar bars */
+  }
+
+  nav a { font-size: 0.9rem; }
   
   .hero h2 { font-size: 2.2rem; }
   .hero p { font-size: 1rem; }
@@ -338,6 +372,7 @@ footer { text-align: center; padding: 32px 24px; color: var(--text-secondary); f
     width: 100%; 
     gap: 12px;
   }
+  
   .btn, .links, .links a { 
     width: 100%; 
     justify-content: center; 
@@ -350,7 +385,6 @@ footer { text-align: center; padding: 32px 24px; color: var(--text-secondary); f
     width: 100%;
   }
   
-  /* Fallback layout adjustment for tiny viewports */
   .cards { 
     grid-template-columns: 1fr; 
   }
