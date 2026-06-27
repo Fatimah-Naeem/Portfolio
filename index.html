@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fatima Naeem | Portfolio</title>
+  <link rel="stylesheet" href="index.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+
+<body class="dark">
+
+<div class="bg-glow-container">
+  <div class="bg-blur-1"></div>
+  <div class="bg-blur-2"></div>
+</div>
+
+<header>
+  <h1>✨ Fatima Naeem</h1>
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#projects">Projects</a>
+    <a href="#education">Education</a>
+    <a href="#contact">Contact</a>
+    <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle Theme">☀️</button>
+  </nav>
+</header>
+
+<section id="home" class="hero">
+  <div class="hero-container">
+    
+    <div class="hero-left">
+      <div class="badge">👩‍💻 Software Engineering Student</div>
+      <h2>Hi, I'm Fatima Naeem</h2>
+      <p>
+        I design and build modern web apps, UI/UX designs in Figma, 
+        and software engineering projects focused on real-world problems.
+      </p>
+
+      <div class="cta-group">
+        <a class="btn" href="#projects">View My Work</a>
+        <div class="links">
+          <a href="https://github.com/Fatimah-Naeem" target="_blank">GitHub</a>
+          <a href="https://www.linkedin.com/in/fatima-naeem-11b36438a/" target="_blank">LinkedIn</a>
+        </div>
+      </div>
+
+      <div class="mini-stats">
+        <div class="stat">
+          <h3>20+</h3>
+          <p>Projects</p>
+        </div>
+        <div class="stat">
+          <h3>Figma</h3>
+          <p>UI/UX Design</p>
+        </div>
+        <div class="stat">
+          <h3>Web</h3>
+          <p>Development</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-right">
+      <div class="mockup-card">
+        <img src="img.jpg" alt="Fatima Naeem Portfolio Art">
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section id="projects" class="section">
+  <h2>My Projects ✨</h2>
+  <div class="cards">
+    <div class="card">
+      <h3>CleanEase 💻</h3>
+      <p>Full-stack laundry management system with booking, order tracking, admin dashboard, and customer management features.</p>
+    </div>
+    <div class="card">
+      <h3>Clothing E-Commerce 👕</h3>
+      <p>Responsive online clothing store with product listing and a modern UI. Designed in Figma and converted to code.</p>
+    </div>
+    <div class="card">
+      <h3>HCI UI/UX Project 🎨</h3>
+      <p>Human-Computer Interaction project focused on usability evaluations, micro-interactions, wireframes, and high-fidelity prototyping.</p>
+    </div>
+    <div class="card">
+      <h3>SDA System Design 📊</h3>
+      <p>Software Design & Architecture system design containing detailed UML diagrams, architectural layers, and system modeling.</p>
+    </div>
+    <div class="card">
+      <h3>Water Level Indicator ⚙️</h3>
+      <p>Hardware-based automation project utilizing sensor modules to detect and seamlessly map real-time water metrics.</p>
+    </div>
+    <div class="card">
+      <h3>Cisco Network Simulation 🌐</h3>
+      <p>Comprehensive port-to-ship network communication setup modeled using precise routing configurations in Packet Tracer.</p>
+    </div>
+  </div>
+</section>
+
+<section id="education" class="section">
+  <h2>Education 🎓</h2>
+  <div class="cards">
+    <div class="card">
+      <h3>Bachelor in Software Engineering</h3>
+      <p>Studying core concepts like OOP, Data Structures & Algorithms, Database Systems, Computer Networks, and HCI.</p>
+    </div>
+    <div class="card">
+      <h3>Academic Foundation</h3>
+      <p>Strong background in advanced mathematical analytics, problem solving, logic building, and discrete reasoning structures.</p>
+    </div>
+    <div class="card">
+      <h3>Tools & Ecosystem</h3>
+      <p>Proficient with Figma layout mechanics, responsive design guidelines, structural CSS architecture, and design system creation.</p>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="section">
+  <div class="contact">
+    <h2>Contact Me 💌</h2>
+    <div class="contact-links">
+      <a class="contact-item" href="mailto:fati2k4@gmail.com">📧 fati2k4@gmail.com</a>
+      <a class="contact-item" href="https://github.com/Fatimah-Naeem" target="_blank">💻 GitHub Profile</a>
+      <a class="contact-item" href="https://www.linkedin.com/in/fatima-naeem-11b36438a/" target="_blank">🔗 LinkedIn Profile</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>Made with 💗 by Fatima Naeem</p>
+</footer>
+
+<script>
+function toggleTheme(){
+  document.body.classList.toggle("dark");
+  const btn = document.querySelector('.theme-toggle');
+  
+  if(document.body.classList.contains('dark')) {
+    btn.textContent = '☀️';
+  } else {
+    btn.textContent = '🌙';
+  }
+}
+</script>
+
+</body>
+</html>
